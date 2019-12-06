@@ -26,6 +26,7 @@ pipeline {
           sh "jx step tag --version \$(cat VERSION)"
           sh "jx step credential -s npm-token -k file -f /builder/home/.npmrc --optional=true"
           sh "npm install"
+          sh "npm run build"
           sh "export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml"
           sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION)"
         }
