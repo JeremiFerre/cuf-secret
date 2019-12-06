@@ -25,4 +25,9 @@ export class ChestService {
       return chest;
     }
   }
+
+  async validateCode(gameId: string, code: string): Promise<boolean> {
+    const chest: Chest = await this.getChest(gameId);
+    return chest.code.join('') === code;
+  }
 }

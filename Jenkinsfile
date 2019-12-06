@@ -3,10 +3,10 @@ pipeline {
     label "jenkins-nodejs"
   }
   environment {
-    ORG = 'nuitinfo'
+    ORG = 'jeremiferre'
     APP_NAME = 'cuf-secret'
     CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
-    DOCKER_REGISTRY_ORG = 'nuitinfo'
+    DOCKER_REGISTRY_ORG = 'jeremiferre'
   }
   stages {
     stage('Build Release') {
